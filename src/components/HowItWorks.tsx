@@ -18,22 +18,25 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-canvas">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">How it works</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
+          <h2 className="text-[22px] font-semibold text-ink mb-3 tracking-[-0.44px]">How it works</h2>
+          <p className="text-base text-muted max-w-xl mx-auto leading-relaxed">
             Getting matched with the right property manager takes less than 2 minutes.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((step) => (
-            <div key={step.number} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm text-center">
-              <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="font-display text-white font-semibold text-lg">{step.number}</span>
+            <div
+              key={step.number}
+              className="bg-surface-card border border-hairline rounded-xl p-6 hover:shadow-card transition-shadow duration-200"
+            >
+              <div className="w-10 h-10 bg-brand-coral rounded-full flex items-center justify-center mb-4">
+                <span className="text-on-brand font-semibold text-base">{step.number}</span>
               </div>
-              <h3 className="font-display text-lg font-medium text-gray-900 mb-2">{step.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
+              <h3 className="text-base font-semibold text-ink mb-2">{step.title}</h3>
+              <p className="text-sm text-muted leading-relaxed">{step.description}</p>
             </div>
           ))}
         </div>

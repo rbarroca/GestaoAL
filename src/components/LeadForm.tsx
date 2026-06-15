@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Loader2 } from 'lucide-react'
+import { Loader2, ChevronDown } from 'lucide-react'
 
 interface FormValues {
   name: string
@@ -23,8 +23,14 @@ interface LeadFormProps {
 }
 
 const inputClass =
-  'w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent'
-const errorClass = 'text-sm text-red-600 mt-1'
+  'w-full bg-canvas border border-hairline rounded-lg px-4 h-14 text-base text-ink placeholder:text-muted focus:outline-none focus:border-2 focus:border-ink transition-colors duration-150'
+
+const selectClass =
+  'w-full bg-canvas border border-hairline rounded-lg px-4 h-14 text-base text-ink appearance-none focus:outline-none focus:border-2 focus:border-ink transition-colors duration-150 cursor-pointer'
+
+const errorClass = 'text-sm text-error mt-1'
+
+const labelClass = 'text-xs font-medium text-muted uppercase tracking-wide'
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {}
@@ -34,6 +40,15 @@ function validate(values: FormValues): FormErrors {
   if (!values.region) errors.region = 'Please select a region.'
   if (!values.propertyType) errors.propertyType = 'Please select a property type.'
   return errors
+}
+
+function SelectWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative">
+      {children}
+      <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
+    </div>
+  )
 }
 
 export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
@@ -86,10 +101,11 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-4" id="form">
+    <form onSubmit={handleSubmit} noValidate className="space-y-5">
       <input type="hidden" name="bot-field" />
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Full name *</label>
+
+      <div className="flex flex-col gap-1">
+        <label className={labelClass}>Full name *</label>
         <input
           type="text"
           name="name"
@@ -98,10 +114,11 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
           onChange={set('name')}
           className={inputClass}
         />
-        {errors.name && <p className={errorClass}>{errors.name}</p>}
+        {errors.name && <span className={errorClass}>{errors.name}</span>}
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+
+      <div className="flex flex-col gap-1">
+        <label className={labelClass}>Email *</label>
         <input
           type="email"
           name="email"
@@ -110,43 +127,53 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
           onChange={set('email')}
           className={inputClass}
         />
-        {errors.email && <p className={errorClass}>{errors.email}</p>}
+        {errors.email && <span className={errorClass}>{errors.email}</span>}
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Region *</label>
-        <select name="region" value={values.region} onChange={set('region')} className={inputClass}>
-          <option value="">Select a region</option>
-          <option value="Algarve">Algarve</option>
-          <option value="Lisbon">Lisbon</option>
-          <option value="Porto">Porto</option>
-          <option value="Other">Other</option>
-        </select>
-        {errors.region && <p className={errorClass}>{errors.region}</p>}
+
+      <div className="flex flex-col gap-1">
+        <label className={labelClass}>Region *</label>
+        <SelectWrapper>
+          <select name="region" value={values.region} onChange={set('region')} className={selectClass}>
+            <option value="">Select a region</option>
+            <option value="Algarve">Algarve</option>
+            <option value="Lisbon">Lisbon</option>
+            <option value="Porto">Porto</option>
+            <option value="Other">Other</option>
+          </select>
+        </SelectWrapper>
+        {errors.region && <span className={errorClass}>{errors.region}</span>}
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Property type *</label>
-        <select name="property_type" value={values.propertyType} onChange={set('propertyType')} className={inputClass}>
-          <option value="">Select property type</option>
-          <option value="Apartment">Apartment</option>
-          <option value="Villa">Villa</option>
-          <option value="Farm/Quinta">Farm / Quinta</option>
-          <option value="Other">Other</option>
-        </select>
-        {errors.propertyType && <p className={errorClass}>{errors.propertyType}</p>}
+
+      <div className="flex flex-col gap-1">
+        <label className={labelClass}>Property type *</label>
+        <SelectWrapper>
+          <select name="property_type" value={values.propertyType} onChange={set('propertyType')} className={selectClass}>
+            <option value="">Select property type</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+            <option value="Farm/Quinta">Farm / Quinta</option>
+            <option value="Other">Other</option>
+          </select>
+        </SelectWrapper>
+        {errors.propertyType && <span className={errorClass}>{errors.propertyType}</span>}
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Number of bedrooms</label>
-        <select name="bedrooms" value={values.bedrooms} onChange={set('bedrooms')} className={inputClass}>
-          <option value="">Select (optional)</option>
-          <option value="Studio">Studio</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4+">4+</option>
-        </select>
+
+      <div className="flex flex-col gap-1">
+        <label className={labelClass}>Number of bedrooms</label>
+        <SelectWrapper>
+          <select name="bedrooms" value={values.bedrooms} onChange={set('bedrooms')} className={selectClass}>
+            <option value="">Select (optional)</option>
+            <option value="Studio">Studio</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4+">4+</option>
+          </select>
+        </SelectWrapper>
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Additional notes</label>
+
+      <div className="flex flex-col gap-1">
+        <label className={labelClass}>Additional notes</label>
         <textarea
           name="notes"
           placeholder="Anything else we should know?"
@@ -154,15 +181,17 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
           onChange={set('notes')}
           maxLength={500}
           rows={3}
-          className={inputClass}
+          className="w-full bg-canvas border border-hairline rounded-lg px-4 py-3 text-base text-ink placeholder:text-muted resize-none focus:outline-none focus:border-2 focus:border-ink transition-colors duration-150"
         />
-        <p className="text-xs text-gray-400 mt-1">{values.notes.length}/500</p>
+        <span className="text-xs text-muted-soft text-right">{values.notes.length}/500</span>
       </div>
-      {submitError && <p className="text-sm text-red-600">{submitError}</p>}
+
+      {submitError && <span className={errorClass}>{submitError}</span>}
+
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-amber-500 hover:bg-amber-600 disabled:opacity-60 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+        className="w-full bg-brand-coral hover:bg-brand-coral-active disabled:bg-brand-coral-disabled disabled:cursor-not-allowed text-on-brand text-base font-medium px-6 py-3 rounded-full min-h-[48px] transition-colors duration-150 flex items-center justify-center gap-2"
       >
         {loading ? (
           <>

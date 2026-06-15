@@ -4,21 +4,21 @@ interface HeroSectionProps {
   defaultRegion?: string
   headline: string
   subheadline: string
+  eyebrow?: string
 }
 
-export default function HeroSection({ defaultRegion, headline, subheadline }: HeroSectionProps) {
+export default function HeroSection({ defaultRegion, headline, subheadline, eyebrow }: HeroSectionProps) {
   return (
-    <section className="bg-green-900 py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="text-white">
-            <h1 className="font-display text-4xl font-semibold leading-tight mb-6">{headline}</h1>
-            <p className="text-green-100 text-lg leading-relaxed">{subheadline}</p>
-          </div>
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <h2 className="font-display text-lg font-semibold text-gray-900 mb-4">Get matched for free</h2>
-            <LeadForm defaultRegion={defaultRegion} />
-          </div>
+    <section className="bg-canvas pt-16 pb-20 px-6" id="lead-form">
+      <div className="max-w-3xl mx-auto text-center">
+        {eyebrow && (
+          <p className="text-sm font-medium text-muted uppercase tracking-widest mb-4">{eyebrow}</p>
+        )}
+        <h1 className="text-[28px] md:text-4xl font-bold text-ink leading-[1.25] mb-4">{headline}</h1>
+        <p className="text-base text-muted leading-relaxed max-w-xl mx-auto mb-10">{subheadline}</p>
+        <div className="bg-canvas shadow-card rounded-2xl p-6 md:p-8 text-left">
+          <p className="text-base font-semibold text-ink mb-6">Get matched for free</p>
+          <LeadForm defaultRegion={defaultRegion} />
         </div>
       </div>
     </section>

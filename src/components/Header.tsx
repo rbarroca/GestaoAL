@@ -6,39 +6,37 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="font-display text-xl font-semibold text-green-900">
-            AL Manager
+    <header className="sticky top-0 z-50 bg-canvas border-b border-hairline">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <Link to="/" className="text-[21px] font-bold text-ink tracking-tight">
+          findamanager<span className="text-brand-coral">al</span>
+        </Link>
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-body">
+          <Link to="/algarve" className="hover:text-ink transition-colors">Algarve</Link>
+          <Link to="/#lead-form" className="hover:text-ink transition-colors">Porto</Link>
+          <Link to="/#lead-form" className="hover:text-ink transition-colors">Lisbon</Link>
+          <Link
+            to="/#lead-form"
+            className="bg-brand-coral text-on-brand px-4 py-2 rounded-full text-sm font-medium hover:bg-brand-coral-active transition-colors min-h-[48px] flex items-center"
+          >
+            Get matched
           </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link to="/algarve" className="text-sm font-medium text-gray-700 hover:text-green-800 transition-colors">
-              Algarve
-            </Link>
-            <Link
-              to="/#form"
-              className="bg-amber-500 hover:bg-amber-600 text-white font-medium px-5 py-2 rounded-lg text-sm transition-colors duration-200"
-            >
-              Find a Manager
-            </Link>
-          </nav>
-          <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+        </nav>
+        <button className="md:hidden p-2 text-ink" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
       {open && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-4">
-          <Link to="/algarve" className="text-sm font-medium text-gray-700" onClick={() => setOpen(false)}>
+        <div className="md:hidden bg-canvas border-t border-hairline px-6 py-4 flex flex-col gap-4">
+          <Link to="/algarve" className="text-sm font-medium text-body hover:text-ink" onClick={() => setOpen(false)}>
             Algarve
           </Link>
           <Link
-            to="/#form"
-            className="bg-amber-500 text-white font-medium px-5 py-2 rounded-lg text-sm text-center"
+            to="/#lead-form"
+            className="bg-brand-coral text-on-brand font-medium px-5 py-3 rounded-full text-sm text-center hover:bg-brand-coral-active transition-colors"
             onClick={() => setOpen(false)}
           >
-            Find a Manager
+            Get matched
           </Link>
         </div>
       )}

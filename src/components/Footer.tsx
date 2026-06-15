@@ -1,19 +1,33 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-display font-semibold text-white text-lg">AL Manager</p>
-          <div className="flex items-center gap-6 text-sm">
-            <a href="mailto:hello@almanager.pt" className="hover:text-white transition-colors">
-              hello@almanager.pt
-            </a>
-            <a href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-          </div>
-          <p className="text-sm">© {new Date().getFullYear()} AL Manager. All rights reserved.</p>
+    <footer className="bg-canvas border-t border-hairline mt-16">
+      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <p className="text-base font-semibold text-ink mb-3">
+            findamanager<span className="text-brand-coral">al</span>
+          </p>
+          <p className="text-sm text-muted leading-relaxed">
+            Matching foreign property owners with trusted local managers across Portugal.
+          </p>
         </div>
+        <div>
+          <p className="text-sm font-semibold text-ink mb-3">Regions</p>
+          <ul className="space-y-2 text-sm text-muted">
+            <li><a href="/algarve" className="hover:text-ink transition-colors">Algarve</a></li>
+            <li><span className="text-muted-soft">Porto — coming soon</span></li>
+            <li><span className="text-muted-soft">Lisbon — coming soon</span></li>
+          </ul>
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-ink mb-3">Contact</p>
+          <a href="mailto:hello@findamanageral.com" className="text-sm text-legal-link hover:underline">
+            hello@findamanageral.com
+          </a>
+        </div>
+      </div>
+      <div className="border-t border-hairline-soft px-6 py-4 max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+        <p className="text-[13px] text-muted">© {new Date().getFullYear()} FindAManagerAL. All rights reserved.</p>
+        <a href="/privacy" className="text-[13px] text-legal-link hover:underline">Privacy Policy</a>
       </div>
     </footer>
   )

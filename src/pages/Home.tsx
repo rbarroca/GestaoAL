@@ -35,20 +35,21 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection
-          headline="Stop managing from a distance. We’ll find you the right manager."
-          subheadline="Tell us about your property. We match you with vetted local managers who know your region."
+          eyebrow="Portugal · Algarve · Lisbon · Porto"
+          headline="Find a trusted property manager for your home in Portugal."
+          subheadline="Tell us about your property. We match you with vetted local managers who know your region — free, with no obligation."
         />
         <TrustBar />
         <HowItWorks />
-        <section className="py-16 md:py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">Browse by region</h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
+        <section className="py-16 bg-canvas">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-[22px] font-semibold text-ink mb-3 tracking-[-0.44px]">Browse by region</h2>
+              <p className="text-base text-muted max-w-xl mx-auto leading-relaxed">
                 We cover the most popular regions for foreign property owners in Portugal.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {regions.map((region) => (
                 <RegionCard key={region.name} {...region} />
               ))}

@@ -51,28 +51,28 @@ const faqSchema = {
   mainEntity: faqs.map((faq) => ({
     '@type': 'Question',
     name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
   })),
 }
 
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
+    <div className="border border-hairline rounded-xl overflow-hidden">
       <button
-        className="w-full flex items-center justify-between px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between px-6 py-5 text-left bg-canvas hover:bg-surface-soft transition-colors"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
-        <span className="font-display font-medium text-gray-900">{question}</span>
-        {open ? <ChevronUp size={18} className="text-gray-500 flex-shrink-0" /> : <ChevronDown size={18} className="text-gray-500 flex-shrink-0" />}
+        <span className="text-base font-semibold text-ink pr-4">{question}</span>
+        {open
+          ? <ChevronUp size={18} className="text-muted flex-shrink-0" />
+          : <ChevronDown size={18} className="text-muted flex-shrink-0" />
+        }
       </button>
       {open && (
-        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-          <p className="text-gray-600 leading-relaxed">{answer}</p>
+        <div className="px-6 py-5 bg-surface-soft border-t border-hairline">
+          <p className="text-base text-body leading-relaxed">{answer}</p>
         </div>
       )}
     </div>
@@ -89,40 +89,40 @@ export default function Algarve() {
       <Header />
       <main>
         <HeroSection
-          headline="Algarve Property Management — Find a Trusted Local Manager"
-          subheadline="We match foreign property owners with vetted, experienced property managers across the Algarve. Free service. No obligation."
+          eyebrow="Algarve · Portugal"
+          headline="Find a trusted property manager in the Algarve."
+          subheadline="We match foreign property owners with vetted, experienced managers across the Algarve. Free service. No obligation."
           defaultRegion="Algarve"
         />
 
         {/* Market context */}
-        <section className="py-16 md:py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 bg-canvas">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-display text-2xl font-semibold text-gray-900 mb-6">
+              <h2 className="text-[22px] font-semibold text-ink mb-6 tracking-[-0.44px]">
                 The Algarve short-term rental market
               </h2>
-              <div className="prose prose-gray space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-4 text-base text-body leading-relaxed">
                 <p>
                   The Algarve is Portugal's most active short-term rental region. Albufeira alone has over{' '}
-                  <strong className="text-gray-900">6,400 active short-term rental listings</strong>, making it one of
+                  <strong className="text-ink">6,400 active short-term rental listings</strong>, making it one of
                   the highest-density rental markets in Southern Europe.
                 </p>
                 <p>
                   Average nightly rates across the region sit at around{' '}
-                  <strong className="text-gray-900">€217</strong>, with premium properties in Vilamoura and Vale do Lobo
+                  <strong className="text-ink">€217</strong>, with premium properties in Vilamoura and Vale do Lobo
                   commanding significantly higher. Average occupancy is approximately{' '}
-                  <strong className="text-gray-900">62%</strong> annually, rising above 85% during the peak summer
-                  season.
+                  <strong className="text-ink">62%</strong> annually, rising above 85% during peak summer.
                 </p>
                 <p>
-                  Peak season runs from <strong className="text-gray-900">June through September</strong>, driven by
-                  family holiday demand from the UK, Germany, France, the Netherlands and Ireland. Shoulder seasons have
-                  strengthened significantly in recent years, particularly for golf and nature tourism.
+                  Peak season runs from <strong className="text-ink">June through September</strong>, driven by
+                  family holiday demand from the UK, Germany, France, the Netherlands and Ireland. Shoulder seasons
+                  have strengthened significantly, particularly for golf and nature tourism.
                 </p>
                 <p>
                   The majority of Algarve holiday property owners are foreign nationals — primarily from the UK,
-                  Ireland, the Netherlands and Germany. Most manage their properties remotely, making a reliable local
-                  property manager an essential business partner rather than a luxury.
+                  Ireland, the Netherlands and Germany. Most manage remotely, making a reliable local property
+                  manager an essential business partner rather than a luxury.
                 </p>
               </div>
             </div>
@@ -130,17 +130,17 @@ export default function Algarve() {
         </section>
 
         {/* Why you need a property manager */}
-        <section className="py-16 md:py-24 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 bg-surface-soft border-y border-hairline">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-display text-2xl font-semibold text-gray-900 mb-8">
+              <h2 className="text-[22px] font-semibold text-ink mb-8 tracking-[-0.44px]">
                 Why you need a property manager in the Algarve
               </h2>
               <ul className="space-y-4">
                 {managerBenefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3">
-                    <CheckCircle size={20} className="text-green-700 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
+                    <CheckCircle size={20} className="text-brand-coral mt-0.5 flex-shrink-0" />
+                    <span className="text-base text-body">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -149,19 +149,19 @@ export default function Algarve() {
         </section>
 
         {/* Sub-region cards */}
-        <section className="py-16 md:py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">Key areas in the Algarve</h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
+        <section className="py-16 bg-canvas">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-[22px] font-semibold text-ink mb-3 tracking-[-0.44px]">Key areas in the Algarve</h2>
+              <p className="text-base text-muted max-w-xl mx-auto leading-relaxed">
                 We have managers covering all major areas of the Algarve coast.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {subRegions.map((area) => (
-                <div key={area.name} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-                  <h3 className="font-display text-lg font-medium text-gray-900 mb-2">{area.name}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{area.description}</p>
+                <div key={area.name} className="bg-surface-card border border-hairline rounded-xl p-6 hover:shadow-card transition-shadow duration-200">
+                  <p className="text-base font-semibold text-ink mb-2">{area.name}</p>
+                  <p className="text-sm text-muted leading-relaxed">{area.description}</p>
                 </div>
               ))}
             </div>
@@ -169,33 +169,30 @@ export default function Algarve() {
         </section>
 
         {/* Second lead form */}
-        <section className="py-16 md:py-24 bg-green-900" id="form-bottom">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              <div className="text-white">
-                <h2 className="font-display text-2xl font-semibold mb-4">
-                  Ready to find your Algarve property manager?
-                </h2>
-                <p className="text-green-100 leading-relaxed">
-                  Submit your details and we'll match you with the right manager for your property and goals. No
-                  commitment required — just tell us what you need.
-                </p>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <LeadForm defaultRegion="Algarve" />
-              </div>
+        <section className="py-16 bg-surface-soft border-y border-hairline" id="form-bottom">
+          <div className="max-w-3xl mx-auto px-6">
+            <div className="text-center mb-8">
+              <h2 className="text-[22px] font-semibold text-ink mb-3 tracking-[-0.44px]">
+                Ready to find your Algarve property manager?
+              </h2>
+              <p className="text-base text-muted leading-relaxed">
+                Submit your details and we'll match you with the right manager. No commitment required.
+              </p>
+            </div>
+            <div className="bg-canvas shadow-card rounded-2xl p-6 md:p-8">
+              <LeadForm defaultRegion="Algarve" />
             </div>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="py-16 md:py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 bg-canvas">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-display text-2xl font-semibold text-gray-900 mb-8 text-center">
+              <h2 className="text-[22px] font-semibold text-ink mb-8 tracking-[-0.44px] text-center">
                 Frequently asked questions
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {faqs.map((faq) => (
                   <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
                 ))}

@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: #111827;
+  font-family: 'Inter', -apple-system, system-ui, Roboto, 'Helvetica Neue', sans-serif;
+  color: #222222;
   background-color: #ffffff;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sora', sans-serif;
 }
