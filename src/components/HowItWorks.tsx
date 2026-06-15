@@ -12,7 +12,7 @@ const steps = [
   {
     number: '3',
     title: 'Your manager contacts you within 48h',
-    description: 'Sit back — your matched property manager will reach out directly to discuss next steps.',
+    description: 'Sit back. Your matched property manager will reach out directly to discuss next steps.',
   },
 ]
 

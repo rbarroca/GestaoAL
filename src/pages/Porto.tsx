@@ -26,7 +26,7 @@ const faqs = [
   {
     question: 'How much does property management cost in Porto?',
     answer:
-      'Property management fees in Porto typically range from 15% to 20% of rental revenue for full management — slightly lower than Lisbon, reflecting the market stage. Some companies also offer hybrid models with a fixed base fee plus performance commission.',
+      'Property management fees in Porto typically range from 15% to 20% of rental revenue for full management slightly lower than Lisbon, reflecting the market stage. Some companies also offer hybrid models with a fixed base fee plus performance commission.',
   },
   {
     question: 'Is Porto a good market for short-term rentals?',
@@ -41,7 +41,7 @@ const faqs = [
   {
     question: 'Do I need a property manager if I live outside Portugal?',
     answer:
-      'Yes. If you\'re based outside Portugal, a local property manager handles everything — guest check-in, cleaning, maintenance, pricing and Portuguese tax compliance — so your Porto investment works without you being there.',
+      'Yes. If you\'re based outside Portugal, a local property manager handles everything guest check-in, cleaning, maintenance, pricing and Portuguese tax compliance so your Porto investment works without you being there.',
   },
 ]
 
@@ -105,7 +105,7 @@ export default function Porto() {
               </h2>
               <div className="space-y-4 text-base text-body leading-relaxed">
                 <p>
-                  Porto recorded 6.27 million overnight stays in 2024 — a growth of 6.9% over 2023 and 36.9% above pre-pandemic 2019 levels. The Norte region as a whole grew 6.4% in overnight stays, outperforming the national average of 4%.
+                  Porto recorded 6.27 million overnight stays in 2024 a growth of 6.9% over 2023 and 36.9% above pre-pandemic 2019 levels. The Norte region as a whole grew 6.4% in overnight stays, outperforming the national average of 4%.
                 </p>
                 <p>
                   Short-term rentals represent 22.6% of all tourist accommodation in Porto, a proportion that continues to grow as the city attracts investors from across Europe. Total tourism revenue for the Porto region reached €492 million in 2024, growing 12.8% year-on-year.
@@ -114,7 +114,7 @@ export default function Porto() {
                   Porto is in an active growth phase. Unlike Lisbon, where licensing restrictions have slowed new registrations, Porto continues to expand its short-term rental market with fewer regulatory barriers. This makes it an attractive entry point for foreign investors.
                 </p>
                 <p>
-                  International visitors represent 63.1% of overnight stays in the Norte region — the highest share on record. The UK, France, Spain and Germany are the primary source markets, with strong demand concentrated in Ribeira, Baixa and the emerging Foz do Douro area.
+                  International visitors represent 63.1% of overnight stays in the Norte region the highest share on record. The UK, France, Spain and Germany are the primary source markets, with strong demand concentrated in Ribeira, Baixa and the emerging Foz do Douro area.
                 </p>
               </div>
             </div>

@@ -15,7 +15,7 @@ const managerBenefits = [
 ]
 
 const subRegions = [
-  { name: 'Albufeira', description: "The Algarve's most active rental market — ~40% of all regional short-term rentals." },
+  { name: 'Albufeira', description: "The Algarve's most active rental market, with around 40% of all regional short-term rentals." },
   { name: 'Lagos', description: 'A popular coastal town with a mix of apartments and villas and a strong western Algarve market.' },
   { name: 'Faro', description: 'The regional capital with year-round demand driven by the international airport.' },
   { name: 'Tavira', description: 'A quieter, upmarket eastern Algarve town attracting quality-focused travellers.' },
@@ -121,7 +121,7 @@ export default function Algarve() {
                   have strengthened significantly, particularly for golf and nature tourism.
                 </p>
                 <p>
-                  The majority of Algarve holiday property owners are foreign nationals — primarily from the UK,
+                  The majority of Algarve holiday property owners are foreign nationals primarily from the UK,
                   Ireland, the Netherlands and Germany. Most manage remotely, making a reliable local property
                   manager an essential business partner rather than a luxury.
                 </p>

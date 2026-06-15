@@ -42,7 +42,7 @@ const faqs = [
   {
     question: 'Do I need a property manager if I live outside Portugal?',
     answer:
-      'If you live outside Portugal, a property manager is essential. They handle guest communications, check-in, cleaning, maintenance and all Portuguese regulatory requirements — so you earn rental income without day-to-day involvement.',
+      'If you live outside Portugal, a property manager is essential. They handle guest communications, check-in, cleaning, maintenance and all Portuguese regulatory requirements so you earn rental income without day-to-day involvement.',
   },
 ]
 
@@ -106,16 +106,16 @@ export default function Lisbon() {
               </h2>
               <div className="space-y-4 text-base text-body leading-relaxed">
                 <p>
-                  Lisbon is Portugal's most visited city, concentrating 19.6% of all national overnight stays — 15.7 million in 2024 alone. The municipality recorded an ADR of €154.6, among the three highest in the country alongside Cascais and Loulé.
+                  Lisbon is Portugal's most visited city, concentrating 19.6% of all national overnight stays 15.7 million in 2024 alone. The municipality recorded an ADR of €154.6, among the three highest in the country alongside Cascais and Loulé.
                 </p>
                 <p>
-                  Unlike seasonal markets, Lisbon operates year-round. The city recorded the lowest seasonality rate among major Portuguese regions (30%) in 2024, meaning consistent demand across all twelve months. Non-residents account for the majority of overnight stays — 80%+ in peak months.
+                  Unlike seasonal markets, Lisbon operates year-round. The city recorded the lowest seasonality rate among major Portuguese regions (30%) in 2024, meaning consistent demand across all twelve months. Non-residents account for the majority of overnight stays 80%+ in peak months.
                 </p>
                 <p>
-                  The Grande Lisboa region generated 19.8% of total national tourism revenue in 2024 — second only to the Algarve. RevPAR reached €106.7, the highest in mainland Portugal, reflecting the strength of the urban short-term rental market.
+                  The Grande Lisboa region generated 19.8% of total national tourism revenue in 2024 second only to the Algarve. RevPAR reached €106.7, the highest in mainland Portugal, reflecting the strength of the urban short-term rental market.
                 </p>
                 <p>
-                  Regulatory context matters here: Lisbon has introduced containment zones and licensing restrictions since 2023. A professional manager who understands local compliance — including RNAL registration, condominium rules, and municipal requirements — is essential for any foreign owner.
+                  Regulatory context matters here: Lisbon has introduced containment zones and licensing restrictions since 2023. A professional manager who understands local compliance including RNAL registration, condominium rules, and municipal requirements is essential for any foreign owner.
                 </p>
               </div>
             </div>
