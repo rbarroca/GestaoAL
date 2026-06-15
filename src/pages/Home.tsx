@@ -37,7 +37,7 @@ export default function Home() {
         <HeroSection
           eyebrow="Portugal · Algarve · Lisbon · Porto"
           headline="Find a trusted property manager for your home in Portugal."
-          subheadline="Tell us about your property. We match you with vetted local managers who know your region — free, with no obligation."
+          subheadline="We match foreign property owners with trusted local managers across Portugal. Free, no obligation."
         />
         <TrustBar />
         <HowItWorks />
