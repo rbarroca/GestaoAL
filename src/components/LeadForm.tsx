@@ -22,13 +22,15 @@ interface LeadFormProps {
   defaultRegion?: string
 }
 
-const inputClass = 'w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent'
+const inputClass =
+  'w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent'
 const errorClass = 'text-sm text-red-600 mt-1'
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {}
   if (!values.name || values.name.trim().length < 2) errors.name = 'Please enter your full name.'
-  if (!values.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errors.email = 'Please enter a valid email address.'
+  if (!values.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))
+    errors.email = 'Please enter a valid email address.'
   if (!values.region) errors.region = 'Please select a region.'
   if (!values.propertyType) errors.propertyType = 'Please select a property type.'
   return errors
@@ -48,8 +50,10 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
   const [loading, setLoading] = useState(false)
   const [submitError, setSubmitError] = useState('')
 
-  const set = (field: keyof FormValues) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-    setValues((v) => ({ ...v, [field]: e.target.value }))
+  const set =
+    (field: keyof FormValues) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+      setValues((v) => ({ ...v, [field]: e.target.value }))
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -86,12 +90,26 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
       <input type="hidden" name="bot-field" />
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Full name *</label>
-        <input type="text" name="name" placeholder="Your name" value={values.name} onChange={set('name')} className={inputClass} />
+        <input
+          type="text"
+          name="name"
+          placeholder="Your name"
+          value={values.name}
+          onChange={set('name')}
+          className={inputClass}
+        />
         {errors.name && <p className={errorClass}>{errors.name}</p>}
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-        <input type="email" name="email" placeholder="your@email.com" value={values.email} onChange={set('email')} className={inputClass} />
+        <input
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          value={values.email}
+          onChange={set('email')}
+          className={inputClass}
+        />
         {errors.email && <p className={errorClass}>{errors.email}</p>}
       </div>
       <div>

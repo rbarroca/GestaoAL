@@ -5,8 +5,8 @@ import Footer from '../components/Footer'
 
 export default function ThankYou() {
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as Window & { gtag?: (...args: unknown[]) => void }).gtag) {
-      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag!('event', 'lead_submitted', {
+    if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+      (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'lead_submitted', {
         event_category: 'lead',
         event_label: 'property_manager_match',
         value: 1,
