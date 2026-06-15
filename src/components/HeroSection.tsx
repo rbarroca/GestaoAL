@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ defaultRegion, headline, subheadline, eyebrow, ctaLabel, ctaHref }: HeroSectionProps) {
   return (
-    <section className="bg-canvas pt-16 pb-20 px-6" id="lead-form">
+    <section className="bg-canvas pt-16 pb-20 px-6" id={ctaLabel ? undefined : 'lead-form'}>
       <div className="max-w-3xl mx-auto text-center">
         {eyebrow && (
           <p className="text-sm font-medium text-muted uppercase tracking-widest mb-4">{eyebrow}</p>
