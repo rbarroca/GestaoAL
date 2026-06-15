@@ -8,22 +8,19 @@ import RegionCard from '../components/RegionCard'
 const regions = [
   {
     name: 'Algarve',
-    description:
-      "Portugal's most popular holiday destination. Over 6,400 active short-term rentals, a thriving international owner community, and strong year-round demand.",
+    description: "Portugal's most popular holiday destination with over 6,400 active short-term rentals. High demand from UK, Dutch, and German property owners.",
     href: '/algarve',
     available: true,
   },
   {
     name: 'Lisbon',
-    description:
-      'The capital city attracts millions of visitors annually. A booming short-term rental market with high nightly rates and excellent occupancy.',
+    description: 'The Portuguese capital offers strong year-round rental demand and a growing number of foreign property investors seeking reliable management.',
     href: '/lisbon',
     available: false,
   },
   {
     name: 'Porto',
-    description:
-      "Portugal's second city and a UNESCO World Heritage site. Strong cultural tourism and growing demand for quality short-term rentals.",
+    description: "Northern Portugal's cultural hub is rapidly growing as a short-term rental market, especially popular with European visitors.",
     href: '/porto',
     available: false,
   },
@@ -40,12 +37,12 @@ export default function Home() {
         />
         <TrustBar />
         <HowItWorks />
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="font-display text-2xl font-semibold text-gray-900 mb-4">Browse by region</h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
-                We cover the most popular regions for foreign property owners in Portugal.
+              <h2 className="font-display text-2xl font-semibold text-gray-900 mb-3">Browse by region</h2>
+              <p className="text-gray-600 text-base max-w-xl mx-auto">
+                We cover Portugal's top property hotspots. Select your region to find a specialist manager.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

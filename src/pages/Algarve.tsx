@@ -15,7 +15,7 @@ const managementBenefits = [
 ]
 
 const subRegions = [
-  { name: 'Albufeira', description: 'The Algarve\'s most active rental market, accounting for roughly 40% of regional short-term listings.' },
+  { name: 'Albufeira', description: "The Algarve's most active rental market, accounting for roughly 40% of regional short-term listings." },
   { name: 'Lagos', description: 'A charming coastal town with strong demand from independent travellers and families seeking beach proximity.' },
   { name: 'Faro', description: 'The regional capital and gateway airport town, with a growing urban short-term rental market.' },
   { name: 'Tavira', description: 'An upmarket eastern Algarve destination popular with discerning European travellers.' },
