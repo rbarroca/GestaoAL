@@ -92,7 +92,8 @@ export default function Algarve() {
           eyebrow="Algarve · Portugal"
           headline="Find a trusted property manager in the Algarve."
           subheadline="We match foreign property owners with vetted, experienced managers across the Algarve. Free service. No obligation."
-          defaultRegion="Algarve"
+          ctaLabel="Find my Algarve manager →"
+          ctaHref="#lead-form"
         />
 
         {/* Market context */}
@@ -139,7 +140,7 @@ export default function Algarve() {
               <ul className="space-y-4">
                 {managerBenefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3">
-                    <CheckCircle size={20} className="text-brand-coral mt-0.5 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-muted mt-0.5 flex-shrink-0" />
                     <span className="text-base text-body">{benefit}</span>
                   </li>
                 ))}
@@ -169,7 +170,7 @@ export default function Algarve() {
         </section>
 
         {/* Second lead form */}
-        <section className="py-16 bg-surface-soft border-y border-hairline" id="form-bottom">
+        <section className="py-16 bg-surface-soft border-y border-hairline" id="lead-form">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-8">
               <h2 className="text-[22px] font-semibold text-ink mb-3 tracking-[-0.44px]">

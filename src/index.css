@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', -apple-system, system-ui, Roboto, 'Helvetica Neue', sans-serif;
   color: #222222;
