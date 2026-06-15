@@ -14,8 +14,8 @@ export default function Footer() {
           <p className="text-sm font-semibold text-ink mb-3">Regions</p>
           <ul className="space-y-2 text-sm text-muted">
             <li><a href="/algarve" className="hover:text-ink transition-colors">Algarve</a></li>
-            <li><span className="text-muted-soft">Porto — coming soon</span></li>
-            <li><span className="text-muted-soft">Lisbon — coming soon</span></li>
+            <li><a href="/lisbon" className="hover:text-ink transition-colors">Lisbon</a></li>
+            <li><a href="/porto" className="hover:text-ink transition-colors">Porto</a></li>
           </ul>
         </div>
         <div>

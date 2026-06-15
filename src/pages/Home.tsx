@@ -18,14 +18,14 @@ const regions = [
     description:
       'The capital city attracts millions of visitors annually. A booming short-term rental market with high nightly rates and excellent occupancy.',
     href: '/lisbon',
-    available: false,
+    available: true,
   },
   {
     name: 'Porto',
     description:
       "Portugal's second city and a UNESCO World Heritage site. Strong cultural tourism and growing demand for quality short-term rentals.",
     href: '/porto',
-    available: false,
+    available: true,
   },
 ]
 
