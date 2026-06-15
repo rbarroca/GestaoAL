@@ -35,7 +35,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection
-          headline="Stop managing from a distance. We'll find you the right manager."
+          headline="Stop managing from a distance. We’ll find you the right manager."
           subheadline="Tell us about your property. We match you with vetted local managers who know your region."
         />
         <TrustBar />

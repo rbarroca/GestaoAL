@@ -24,9 +24,9 @@ export default function ThankYou() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="font-display text-3xl font-semibold text-gray-900 mb-4">We've received your request</h1>
+          <h1 className="font-display text-3xl font-semibold text-gray-900 mb-4">We’ve received your request</h1>
           <p className="text-gray-600 text-lg mb-8">
-            We'll match you with the best property manager in your region and they'll be in touch within 48 hours.
+            We’ll match you with the best property manager in your region and they’ll be in touch within 48 hours.
           </p>
           <Link
             to="/"
