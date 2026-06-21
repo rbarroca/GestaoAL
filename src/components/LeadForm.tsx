@@ -105,35 +105,47 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
       <input type="hidden" name="bot-field" />
 
       <div className="flex flex-col gap-1">
-        <label className={labelClass}>Full name *</label>
+        <label htmlFor="name" className={labelClass}>Full name *</label>
         <input
+          id="name"
           type="text"
           name="name"
           placeholder="Your name"
           value={values.name}
           onChange={set('name')}
           className={inputClass}
+          aria-required="true"
         />
-        {errors.name && <span className={errorClass}>{errors.name}</span>}
+        {errors.name && <span className={errorClass} role="alert">{errors.name}</span>}
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className={labelClass}>Email *</label>
+        <label htmlFor="email" className={labelClass}>Email *</label>
         <input
+          id="email"
           type="email"
           name="email"
           placeholder="your@email.com"
           value={values.email}
           onChange={set('email')}
           className={inputClass}
+          aria-required="true"
         />
-        {errors.email && <span className={errorClass}>{errors.email}</span>}
+        {errors.email && <span className={errorClass} role="alert">{errors.email}</span>}
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className={labelClass}>Region *</label>
+        <label htmlFor="region" className={labelClass}>Region *</label>
         <SelectWrapper>
-          <select name="region" value={values.region} onChange={set('region')} className={selectClass}>
+          <select
+            id="region"
+            name="region"
+            value={values.region}
+            onChange={set('region')}
+            className={selectClass}
+            aria-required="true"
+            aria-label="Select your property region"
+          >
             <option value="">Select a region</option>
             <option value="Algarve">Algarve</option>
             <option value="Lisbon">Lisbon</option>
@@ -141,13 +153,21 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
             <option value="Other">Other</option>
           </select>
         </SelectWrapper>
-        {errors.region && <span className={errorClass}>{errors.region}</span>}
+        {errors.region && <span className={errorClass} role="alert">{errors.region}</span>}
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className={labelClass}>Property type *</label>
+        <label htmlFor="property_type" className={labelClass}>Property type *</label>
         <SelectWrapper>
-          <select name="property_type" value={values.propertyType} onChange={set('propertyType')} className={selectClass}>
+          <select
+            id="property_type"
+            name="property_type"
+            value={values.propertyType}
+            onChange={set('propertyType')}
+            className={selectClass}
+            aria-required="true"
+            aria-label="Select your property type"
+          >
             <option value="">Select property type</option>
             <option value="Apartment">Apartment</option>
             <option value="Villa">Villa</option>
@@ -155,13 +175,20 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
             <option value="Other">Other</option>
           </select>
         </SelectWrapper>
-        {errors.propertyType && <span className={errorClass}>{errors.propertyType}</span>}
+        {errors.propertyType && <span className={errorClass} role="alert">{errors.propertyType}</span>}
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className={labelClass}>Number of bedrooms</label>
+        <label htmlFor="bedrooms" className={labelClass}>Number of bedrooms</label>
         <SelectWrapper>
-          <select name="bedrooms" value={values.bedrooms} onChange={set('bedrooms')} className={selectClass}>
+          <select
+            id="bedrooms"
+            name="bedrooms"
+            value={values.bedrooms}
+            onChange={set('bedrooms')}
+            className={selectClass}
+            aria-label="Select number of bedrooms"
+          >
             <option value="">Select (optional)</option>
             <option value="Studio">Studio</option>
             <option value="1">1</option>
@@ -173,8 +200,9 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className={labelClass}>Additional notes</label>
+        <label htmlFor="notes" className={labelClass}>Additional notes</label>
         <textarea
+          id="notes"
           name="notes"
           placeholder="Anything else we should know?"
           value={values.notes}
@@ -186,7 +214,7 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
         <span className="text-xs text-muted-soft text-right">{values.notes.length}/500</span>
       </div>
 
-      {submitError && <span className={errorClass}>{submitError}</span>}
+      {submitError && <span className={errorClass} role="alert">{submitError}</span>}
 
       <button
         type="submit"
@@ -195,7 +223,7 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
       >
         {loading ? (
           <>
-            <Loader2 size={18} className="animate-spin" />
+            <Loader2 size={18} className="animate-spin" aria-hidden="true" />
             Sending...
           </>
         ) : (
