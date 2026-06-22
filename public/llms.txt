@@ -1,0 +1,18 @@
+# FindAManagerAL
+
+> Free matching service connecting foreign property owners with trusted local property managers in Portugal.
+
+FindAManagerAL helps foreign nationals who own holiday properties in Portugal find vetted, experienced local property managers. The service is free and covers the Algarve, Lisbon, and Porto regions.
+
+## Service
+
+- [Home](https://findamanageral.com/)
+- [Algarve](https://findamanageral.com/algarve)
+- [Lisbon](https://findamanageral.com/lisbon)
+- [Porto](https://findamanageral.com/porto)
+
+## About
+
+FindAManagerAL is a lead generation platform targeting foreign property owners in Portugal who need remote property management for short-term rentals (Alojamento Local). The platform matches owners with local managers who handle guest communications, check-in/out, cleaning, maintenance, and Portuguese tax compliance.
+
+Target audience: UK, Irish, Dutch, German, and French property owners with holiday homes in Portugal.

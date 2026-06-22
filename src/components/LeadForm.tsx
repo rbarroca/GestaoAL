@@ -223,7 +223,7 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
           rows={3}
           className="w-full bg-canvas border border-hairline rounded-lg px-4 py-3 text-base text-ink placeholder:text-muted resize-none focus:outline-none focus:border-2 focus:border-ink transition-colors duration-150"
         />
-        <span className="text-xs text-muted-soft text-right">{values.notes.length}/500</span>
+        <span className="text-xs text-muted text-right">{values.notes.length}/500</span>
       </div>
 
       {submitError && <span className={errorClass} role="alert">{submitError}</span>}
