@@ -92,6 +92,18 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
 
     try {
       await fetch('/', { method: 'POST', body: formData })
+
+      if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+        ;(window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'lead_submitted', {
+          event_category: 'lead',
+          event_label: 'property_manager_match',
+          region: values.region,
+          property_type: values.propertyType,
+          bedrooms: values.bedrooms || 'not_specified',
+          value: 1,
+        })
+      }
+
       navigate('/thank-you')
     } catch {
       setSubmitError('Something went wrong. Please try again.')
