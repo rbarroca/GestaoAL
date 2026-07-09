@@ -7,6 +7,10 @@ interface HeroSectionProps {
   eyebrow?: string
   ctaLabel?: string
   ctaHref?: string
+  /** Image name without extension, e.g. "hero" | "algarve" | "lisbon" | "porto" */
+  imageName?: string
+  /** Alt text for the background image */
+  imageAlt?: string
 }
 
 const trustChips = [
@@ -21,6 +25,8 @@ export default function HeroSection({
   eyebrow,
   ctaLabel,
   ctaHref,
+  imageName,
+  imageAlt = '',
 }: HeroSectionProps) {
   const hasForm = !ctaLabel || !ctaHref
 
@@ -30,15 +36,39 @@ export default function HeroSection({
       style={{ background: 'var(--surface-ink)' }}
       id={hasForm ? 'lead-form' : undefined}
     >
-      {/* Directional scrim — darkens left side for text legibility */}
+      {/* Background image — LCP element for home hero, eager; lazy on region heroes if below fold */}
+      {imageName && (
+        <picture>
+          <source
+            type="image/avif"
+            srcSet={`/images/${imageName}-768.avif 768w, /images/${imageName}-1280.avif 1280w, /images/${imageName}-1920.avif 1920w`}
+            sizes="100vw"
+          />
+          <source
+            type="image/webp"
+            srcSet={`/images/${imageName}-768.webp 768w, /images/${imageName}-1280.webp 1280w, /images/${imageName}-1920.webp 1920w`}
+            sizes="100vw"
+          />
+          <img
+            src={`/images/${imageName}-1280.webp`}
+            width={1920}
+            height={1080}
+            alt={imageAlt}
+            loading={hasForm ? 'eager' : 'lazy'}
+            fetchPriority={hasForm ? 'high' : 'auto'}
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden={!imageAlt || undefined}
+          />
+        </picture>
+      )}
+
+      {/* Directional scrim — keeps text legible over photo */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: 'var(--scrim-hero)' }}
         aria-hidden="true"
       />
-
-      {/* Placeholder slot for hero photograph — drop <img> here when available:
-          <img src="..." alt="" className="absolute inset-0 w-full h-full object-cover -z-10" /> */}
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-5 lg:px-10 py-[88px]">
         {hasForm ? (

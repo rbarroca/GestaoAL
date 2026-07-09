@@ -104,6 +104,8 @@ export default function Porto() {
           subheadline="We match foreign property owners with vetted, experienced managers across Porto. Free service. No obligation."
           ctaLabel="Find my Porto manager →"
           ctaHref="#lead-form"
+          imageName="porto"
+          imageAlt="Boats on the Douro river near the Dom Luís bridge, Porto"
         />
 
         {/* Market context */}

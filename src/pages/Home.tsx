@@ -14,6 +14,8 @@ const regions = [
       "Portugal's most popular holiday destination. Over 6,400 active short-term rentals, a thriving international owner community, and strong year-round demand.",
     href: '/algarve',
     available: true,
+    imageName: 'algarve',
+    imageAlt: 'Scenic coastal cliffs in the Algarve, Portugal',
   },
   {
     name: 'Lisbon',
@@ -21,6 +23,8 @@ const regions = [
       'The capital city attracts millions of visitors annually. A booming short-term rental market with high nightly rates and excellent occupancy.',
     href: '/lisbon',
     available: true,
+    imageName: 'lisbon',
+    imageAlt: 'Yellow tram on a Lisbon street, Portugal',
   },
   {
     name: 'Porto',
@@ -28,6 +32,8 @@ const regions = [
       "Portugal's second city and a UNESCO World Heritage site. Strong cultural tourism and growing demand for quality short-term rentals.",
     href: '/porto',
     available: true,
+    imageName: 'porto',
+    imageAlt: 'Boats on the Douro river near the Dom Luís bridge, Porto',
   },
 ]
 
@@ -49,6 +55,8 @@ export default function Home() {
           eyebrow="Portugal · Algarve · Lisbon · Porto"
           headline="Find a trusted property manager for your home in Portugal."
           subheadline="We match foreign property owners with trusted local managers across Portugal. Free, no obligation."
+          imageName="hero"
+          imageAlt="Aerial view of a beach in Portugal"
         />
         <TrustBar />
         <HowItWorks />

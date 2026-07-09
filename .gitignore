@@ -1,3 +1,5 @@
 node_modules/
 dist/
 .netlify/
+# Original photos — large, not committed; regenerate with npm run optimize:images
+src/assets/images/originals/

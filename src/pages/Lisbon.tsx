@@ -105,6 +105,8 @@ export default function Lisbon() {
           subheadline="We match foreign property owners with vetted, experienced managers across Lisbon. Free service. No obligation."
           ctaLabel="Find my Lisbon manager →"
           ctaHref="#lead-form"
+          imageName="lisbon"
+          imageAlt="Yellow tram on a Lisbon street, Portugal"
         />
 
         {/* Market context */}

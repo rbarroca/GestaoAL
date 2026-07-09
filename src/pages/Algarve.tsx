@@ -104,6 +104,8 @@ export default function Algarve() {
           subheadline="We match foreign property owners with vetted, experienced managers across the Algarve. Free service. No obligation."
           ctaLabel="Find my Algarve manager →"
           ctaHref="#lead-form"
+          imageName="algarve"
+          imageAlt="Scenic coastal cliffs in the Algarve, Portugal"
         />
 
         {/* Market context */}
