@@ -2,12 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Design System AL v1.0 — CSS custom properties ───────────────────────── */
+
+:root {
+  --font-sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Ink neutrals */
+  --ink-900: #1c1c1e;
+  --ink-700: #48484a;
+  --ink-500: #6b7280;
+  --ink-400: #8a8a8e;
+  --ink-300: #a8a8a8;
+  --ink-200: #c4c4c4;
+
+  /* Surfaces */
+  --surface-page:   #ffffff;
+  --surface-subtle: #fafafa;
+  --surface-ink:    #1c1c1e;
+
+  /* Borders */
+  --border-ds-strong:  #e2e2e2;
+  --border-ds-default: #ededed;
+  --border-ds-soft:    #ececec;
+  --border-ds-faint:   #efefef;
+
+  /* Overlays */
+  --scrim-hero: linear-gradient(105deg, rgba(15,15,18,0.82) 0%, rgba(15,15,18,0.55) 42%, rgba(15,15,18,0.12) 100%);
+  --scrim-card: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+
+  /* Semantic */
+  --ds-success: #0B7568;
+  --ds-warning: #B45309;
+  --ds-danger:  #DC2626;
+  --ds-info:    #1D4ED8;
+
+  /* Radius */
+  --radius-sm:   12px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-card:  0 18px 40px rgba(0,0,0,0.10);
+  --shadow-float: 0 30px 70px rgba(0,0,0,0.30);
+  --shadow-nav:   0 8px 30px rgba(0,0,0,0.14);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+  --dur-fast: 0.18s;
+  --dur-base: 0.4s;
+}
+
+/* Per-site accent tokens — set on <html data-site="..."> */
+[data-site="findamanageral"] {
+  --accent-ui:   #FF385C;  /* 3.52:1 — fills, chrome, large/bold text (≥18.66px bold or ≥24px) */
+  --accent-text: #E11D48;  /* 4.70:1 — body text, inline links */
+  --accent-tint: rgba(255,56,92,0.12);
+  --accent-ring: rgba(255,56,92,0.35);
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', -apple-system, system-ui, Roboto, 'Helvetica Neue', sans-serif;
-  color: #222222;
-  background-color: #ffffff;
+  font-family: var(--font-sans);
+  color: var(--ink-900);
+  background-color: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── DS utility: focus ring for inputs / buttons ─────────────────────────── */
+/* Applied as a class so Tailwind's focus: variants stay clean */
+.ds-focus:focus-visible {
+  outline: none;
+  border-color: var(--accent-ui);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+/* ── Motion preference ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
