@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection'
 import TrustBar from '../components/TrustBar'
 import HowItWorks from '../components/HowItWorks'
 import RegionCard from '../components/RegionCard'
+import HomeFAQ from '../components/HomeFAQ'
 
 const regions = [
   {
@@ -66,6 +67,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <HomeFAQ />
       </main>
       <Footer />
     </>
