@@ -18,7 +18,7 @@ export default function RegionCard({ name, description, href, available }: Regio
         </div>
         <div className="p-5 bg-white">
           <p className="text-ds-base text-ink-500 leading-relaxed mb-4">{description}</p>
-          <p className="text-sm font-semibold text-ink-400">Coming soon</p>
+          <p className="text-ds-base font-semibold text-ink-400">Coming soon</p>
         </div>
       </div>
     )
@@ -38,7 +38,7 @@ export default function RegionCard({ name, description, href, available }: Regio
 
       {/* Text block */}
       <div className="p-5 bg-white">
-        <p className="text-ds-base text-ink-500 leading-relaxed mb-4 line-clamp-2">{description}</p>
+        <p className="text-ds-body text-ink-500 leading-relaxed mb-4">{description}</p>
         <p className="text-sm font-bold" style={{ color: 'var(--accent-text)' }}>View managers →</p>
       </div>
     </Link>

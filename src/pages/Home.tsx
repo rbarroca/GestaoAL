@@ -55,8 +55,13 @@ export default function Home() {
         <section className="py-16 bg-canvas">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-10">
-              <h2 className="text-[22px] font-semibold text-ink mb-3 tracking-[-0.44px]">Browse by region</h2>
-              <p className="text-base text-muted max-w-xl mx-auto leading-relaxed">
+              <h2
+                className="font-extrabold text-ink-900 mb-3 tracking-[-0.02em]"
+                style={{ fontSize: '2.25rem', lineHeight: '1.1' }}
+              >
+                Browse by region
+              </h2>
+              <p className="text-ds-lead text-ink-500 max-w-xl mx-auto">
                 We cover the most popular regions for foreign property owners in Portugal.
               </p>
             </div>

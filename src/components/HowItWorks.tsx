@@ -21,8 +21,13 @@ export default function HowItWorks() {
     <section className="py-16 bg-canvas">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-[22px] font-semibold text-ink mb-3 tracking-[-0.44px]">How it works</h2>
-          <p className="text-base text-muted max-w-xl mx-auto leading-relaxed">
+          <h2
+            className="font-extrabold text-ink-900 mb-3 tracking-[-0.02em]"
+            style={{ fontSize: '2.25rem', lineHeight: '1.1' }}
+          >
+            How it works
+          </h2>
+          <p className="text-ds-lead text-ink-500 max-w-xl mx-auto">
             Getting matched with the right property manager takes less than 2 minutes.
           </p>
         </div>
@@ -38,8 +43,8 @@ export default function HowItWorks() {
               >
                 <span className="text-white font-bold text-base">{step.number}</span>
               </div>
-              <h3 className="text-base font-semibold text-ink mb-2">{step.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{step.description}</p>
+              <h3 className="text-ds-h3 text-ink-900 mb-2">{step.title}</h3>
+              <p className="text-ds-body text-ink-500">{step.description}</p>
             </div>
           ))}
         </div>
