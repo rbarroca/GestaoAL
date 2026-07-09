@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -5,6 +6,13 @@ import Footer from '../components/Footer'
 export default function ThankYou() {
   return (
     <>
+      <Helmet>
+        <title>Request Received | FindAManagerAL</title>
+        <meta name="description" content="We've received your property management request. We'll match you with the best manager in your region within 48 hours." />
+        <link rel="canonical" href="https://findamanageral.com/thank-you" />
+        <meta property="og:url" content="https://findamanageral.com/thank-you" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <Header />
       <main className="min-h-[70vh] bg-canvas flex items-center justify-center py-24 px-6">
         <div className="max-w-lg text-center">

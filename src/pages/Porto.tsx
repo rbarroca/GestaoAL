@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { CheckCircle, ChevronDown, ChevronUp } from 'lucide-react'
 import Header from '../components/Header'
@@ -82,6 +83,15 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 export default function Porto() {
   return (
     <>
+      <Helmet>
+        <title>Porto Property Management | Find a Trusted Manager | FindAManagerAL</title>
+        <meta name="description" content="Find the best short-term rental management company in Porto. Free matching for foreign property owners. Ribeira, Foz, Boavista & more." />
+        <link rel="canonical" href="https://findamanageral.com/porto" />
+        <meta property="og:url" content="https://findamanageral.com/porto" />
+        <meta property="og:title" content="Porto Property Management | Find a Trusted Manager | FindAManagerAL" />
+        <meta property="og:description" content="Find the best short-term rental management company in Porto. Free matching for foreign property owners." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

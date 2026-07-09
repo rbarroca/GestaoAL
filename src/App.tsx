@@ -1,3 +1,4 @@
+import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Algarve from './pages/Algarve'
@@ -7,6 +8,7 @@ import ThankYou from './pages/ThankYou'
 
 export default function App() {
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -16,5 +18,6 @@ export default function App() {
         <Route path="/thank-you" element={<ThankYou />} />
       </Routes>
     </BrowserRouter>
+    </HelmetProvider>
   )
 }

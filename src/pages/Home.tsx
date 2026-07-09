@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import HeroSection from '../components/HeroSection'
@@ -32,6 +33,15 @@ const regions = [
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Find a Property Manager in Portugal | FindAManagerAL</title>
+        <meta name="description" content="Find a vetted local property manager for your holiday home in Portugal. We match foreign property owners with trusted managers in the Algarve, Lisbon and Porto." />
+        <link rel="canonical" href="https://findamanageral.com/" />
+        <meta property="og:url" content="https://findamanageral.com/" />
+        <meta property="og:title" content="Find a Property Manager in Portugal | FindAManagerAL" />
+        <meta property="og:description" content="Free matching service for foreign property owners in Portugal. Algarve, Lisbon and Porto." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Header />
       <main>
         <HeroSection

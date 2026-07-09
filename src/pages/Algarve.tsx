@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { CheckCircle, ChevronDown, ChevronUp } from 'lucide-react'
 import Header from '../components/Header'
@@ -82,6 +83,15 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 export default function Algarve() {
   return (
     <>
+      <Helmet>
+        <title>Algarve Property Management | Find a Trusted Manager | FindAManagerAL</title>
+        <meta name="description" content="Find the best property management company in the Algarve. Free matching for foreign owners. Albufeira, Lagos, Faro, Tavira & more." />
+        <link rel="canonical" href="https://findamanageral.com/algarve" />
+        <meta property="og:url" content="https://findamanageral.com/algarve" />
+        <meta property="og:title" content="Algarve Property Management | Find a Trusted Manager | FindAManagerAL" />
+        <meta property="og:description" content="Find the best property management company in the Algarve. Free matching for foreign owners." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
