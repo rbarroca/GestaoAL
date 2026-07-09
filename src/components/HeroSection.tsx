@@ -9,26 +9,107 @@ interface HeroSectionProps {
   ctaHref?: string
 }
 
-export default function HeroSection({ defaultRegion, headline, subheadline, eyebrow, ctaLabel, ctaHref }: HeroSectionProps) {
+const trustChips = [
+  '✓ 100% free for owners',
+  '✓ Reply within 48h',
+]
+
+export default function HeroSection({
+  defaultRegion,
+  headline,
+  subheadline,
+  eyebrow,
+  ctaLabel,
+  ctaHref,
+}: HeroSectionProps) {
+  const hasForm = !ctaLabel || !ctaHref
+
   return (
-    <section className="bg-canvas pt-16 pb-20 px-6" id={ctaLabel ? undefined : 'lead-form'}>
-      <div className="max-w-3xl mx-auto text-center">
-        {eyebrow && (
-          <p className="text-sm font-medium text-muted uppercase tracking-widest mb-4">{eyebrow}</p>
-        )}
-        <h1 className="text-[28px] md:text-4xl font-bold text-ink leading-[1.25] mb-4">{headline}</h1>
-        <p className="text-base text-muted leading-relaxed max-w-xl mx-auto mb-10">{subheadline}</p>
-        {ctaLabel && ctaHref ? (
-          <a
-            href={ctaHref}
-            className="inline-flex items-center bg-brand-coral hover:bg-brand-coral-active text-on-brand text-base font-medium px-8 py-3 rounded-full min-h-[48px] transition-colors duration-150"
-          >
-            {ctaLabel}
-          </a>
+    <section
+      className="relative overflow-hidden"
+      style={{ background: 'var(--surface-ink)' }}
+      id={hasForm ? 'lead-form' : undefined}
+    >
+      {/* Directional scrim — darkens left side for text legibility */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'var(--scrim-hero)' }}
+        aria-hidden="true"
+      />
+
+      {/* Placeholder slot for hero photograph — drop <img> here when available:
+          <img src="..." alt="" className="absolute inset-0 w-full h-full object-cover -z-10" /> */}
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-5 lg:px-10 py-[88px]">
+        {hasForm ? (
+          /* ── Home: split layout — copy left, form card right ── */
+          <div className="grid lg:grid-cols-[1fr_420px] gap-10 lg:gap-16 items-start">
+
+            {/* Left — copy */}
+            <div className="flex flex-col gap-6 lg:pt-4">
+              {eyebrow && (
+                <span className="self-start text-ds-eyebrow uppercase text-white/80 bg-white/10 border border-white/20 rounded-pill px-4 py-1.5">
+                  {eyebrow}
+                </span>
+              )}
+              <h1
+                className="font-extrabold text-white tracking-[-0.03em] leading-[1.04]"
+                style={{ fontSize: 'clamp(2.125rem, 6vw, 3.375rem)' }}
+              >
+                {headline}
+              </h1>
+              <p className="text-ds-lead text-white/75 max-w-[520px]">
+                {subheadline}
+              </p>
+              <div className="flex flex-wrap gap-3 mt-2">
+                {trustChips.map((chip) => (
+                  <span
+                    key={chip}
+                    className="text-sm font-medium text-white/90 bg-white/10 border border-white/20 rounded-pill px-4 py-2"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — floating form card */}
+            <div
+              className="w-full rounded-ds-xl bg-white p-6 lg:p-8"
+              style={{ boxShadow: 'var(--shadow-float)' }}
+            >
+              <p className="text-ds-body font-semibold text-ink-900 mb-5">Get matched for free</p>
+              <LeadForm defaultRegion={defaultRegion} />
+            </div>
+          </div>
         ) : (
-          <div className="bg-canvas shadow-card rounded-2xl p-6 md:p-8 text-left">
-            <p className="text-base font-semibold text-ink mb-6">Get matched for free</p>
-            <LeadForm defaultRegion={defaultRegion} />
+          /* ── Region pages: centered CTA hero ── */
+          <div className="max-w-2xl mx-auto text-center flex flex-col gap-6">
+            {eyebrow && (
+              <span className="self-center text-ds-eyebrow uppercase text-white/80 bg-white/10 border border-white/20 rounded-pill px-4 py-1.5">
+                {eyebrow}
+              </span>
+            )}
+            <h1
+              className="font-extrabold text-white tracking-[-0.03em] leading-[1.04]"
+              style={{ fontSize: 'clamp(2.125rem, 6vw, 3.375rem)' }}
+            >
+              {headline}
+            </h1>
+            <p className="text-ds-lead text-white/75">
+              {subheadline}
+            </p>
+            <div className="mt-2">
+              <a
+                href={ctaHref}
+                className="inline-flex items-center text-base font-semibold text-white px-8 py-4 rounded-pill min-h-[52px] transition-all duration-[0.18s] ds-focus"
+                style={{ background: 'var(--accent-ui)' }}
+                onMouseEnter={e => (e.currentTarget.style.background = '#e6314e')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'var(--accent-ui)')}
+              >
+                {ctaLabel}
+              </a>
+            </div>
           </div>
         )}
       </div>
