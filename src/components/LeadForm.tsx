@@ -22,15 +22,18 @@ interface LeadFormProps {
   defaultRegion?: string
 }
 
+// DS v1.0 — inputs: radius-sm (12px), border-ds-strong, accent focus ring via .ds-focus
 const inputClass =
-  'w-full bg-canvas border border-hairline rounded-lg px-4 h-14 text-base text-ink placeholder:text-muted focus:outline-none focus:border-2 focus:border-ink transition-colors duration-150'
+  'w-full bg-white border border-ds-border-strong rounded-ds-sm px-4 h-14 text-ds-body text-ink-900 placeholder:text-ink-400 focus:outline-none ds-focus transition-colors duration-[0.18s]'
 
 const selectClass =
-  'w-full bg-canvas border border-hairline rounded-lg px-4 h-14 text-base text-ink appearance-none focus:outline-none focus:border-2 focus:border-ink transition-colors duration-150 cursor-pointer'
+  'w-full bg-white border border-ds-border-strong rounded-ds-sm px-4 h-14 text-ds-body text-ink-900 appearance-none focus:outline-none ds-focus transition-colors duration-[0.18s] cursor-pointer'
 
-const errorClass = 'text-sm text-error mt-1'
+// Labels: 11px, uppercase, weight-700, ink-500 (4.83:1 — AA ✓)
+const labelClass = 'text-ds-label uppercase text-ink-500'
 
-const labelClass = 'text-xs font-medium text-muted uppercase tracking-wide'
+// Errors: --ds-danger (#DC2626, 4.53:1 — AA ✓)
+const errorClass = 'text-sm text-ds-danger mt-1'
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {}
@@ -46,7 +49,7 @@ function SelectWrapper({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative">
       {children}
-      <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
+      <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-400 pointer-events-none" />
     </div>
   )
 }
@@ -113,7 +116,7 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-5">
+    <form onSubmit={handleSubmit} noValidate className="space-y-4">
       <input type="hidden" name="bot-field" />
 
       <div className="flex flex-col gap-1">
@@ -146,52 +149,54 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
         {errors.email && <span className={errorClass} role="alert">{errors.email}</span>}
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label htmlFor="region" className={labelClass}>Region *</label>
-        <SelectWrapper>
-          <select
-            id="region"
-            name="region"
-            value={values.region}
-            onChange={set('region')}
-            className={selectClass}
-            aria-required="true"
-            aria-label="Select your property region"
-          >
-            <option value="">Select a region</option>
-            <option value="Algarve">Algarve</option>
-            <option value="Lisbon">Lisbon</option>
-            <option value="Porto">Porto</option>
-            <option value="Other">Other</option>
-          </select>
-        </SelectWrapper>
-        {errors.region && <span className={errorClass} role="alert">{errors.region}</span>}
+      <div className="grid grid-cols-2 gap-3">
+        <div className="flex flex-col gap-1">
+          <label htmlFor="region" className={labelClass}>Region *</label>
+          <SelectWrapper>
+            <select
+              id="region"
+              name="region"
+              value={values.region}
+              onChange={set('region')}
+              className={selectClass}
+              aria-required="true"
+              aria-label="Select your property region"
+            >
+              <option value="">Region</option>
+              <option value="Algarve">Algarve</option>
+              <option value="Lisbon">Lisbon</option>
+              <option value="Porto">Porto</option>
+              <option value="Other">Other</option>
+            </select>
+          </SelectWrapper>
+          {errors.region && <span className={errorClass} role="alert">{errors.region}</span>}
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <label htmlFor="property_type" className={labelClass}>Property type *</label>
+          <SelectWrapper>
+            <select
+              id="property_type"
+              name="property_type"
+              value={values.propertyType}
+              onChange={set('propertyType')}
+              className={selectClass}
+              aria-required="true"
+              aria-label="Select your property type"
+            >
+              <option value="">Type</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Villa">Villa</option>
+              <option value="Farm/Quinta">Farm / Quinta</option>
+              <option value="Other">Other</option>
+            </select>
+          </SelectWrapper>
+          {errors.propertyType && <span className={errorClass} role="alert">{errors.propertyType}</span>}
+        </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="property_type" className={labelClass}>Property type *</label>
-        <SelectWrapper>
-          <select
-            id="property_type"
-            name="property_type"
-            value={values.propertyType}
-            onChange={set('propertyType')}
-            className={selectClass}
-            aria-required="true"
-            aria-label="Select your property type"
-          >
-            <option value="">Select property type</option>
-            <option value="Apartment">Apartment</option>
-            <option value="Villa">Villa</option>
-            <option value="Farm/Quinta">Farm / Quinta</option>
-            <option value="Other">Other</option>
-          </select>
-        </SelectWrapper>
-        {errors.propertyType && <span className={errorClass} role="alert">{errors.propertyType}</span>}
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <label htmlFor="bedrooms" className={labelClass}>Number of bedrooms</label>
+        <label htmlFor="bedrooms" className={labelClass}>Bedrooms</label>
         <SelectWrapper>
           <select
             id="bedrooms"
@@ -201,7 +206,7 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
             className={selectClass}
             aria-label="Select number of bedrooms"
           >
-            <option value="">Select (optional)</option>
+            <option value="">Bedrooms (optional)</option>
             <option value="Studio">Studio</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -221,9 +226,9 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
           onChange={set('notes')}
           maxLength={500}
           rows={3}
-          className="w-full bg-canvas border border-hairline rounded-lg px-4 py-3 text-base text-ink placeholder:text-muted resize-none focus:outline-none focus:border-2 focus:border-ink transition-colors duration-150"
+          className="w-full bg-white border border-ds-border-strong rounded-ds-sm px-4 py-3 text-ds-body text-ink-900 placeholder:text-ink-400 resize-none focus:outline-none ds-focus transition-colors duration-[0.18s]"
         />
-        <span className="text-xs text-muted text-right">{values.notes.length}/500</span>
+        <span className="text-xs text-ink-400 text-right">{values.notes.length}/500</span>
       </div>
 
       {submitError && <span className={errorClass} role="alert">{submitError}</span>}
@@ -231,7 +236,10 @@ export default function LeadForm({ defaultRegion = '' }: LeadFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-brand-coral hover:bg-brand-coral-active disabled:bg-brand-coral-disabled disabled:cursor-not-allowed text-on-brand text-base font-medium px-6 py-3 rounded-full min-h-[48px] transition-colors duration-150 flex items-center justify-center gap-2"
+        className="w-full text-white text-ds-body font-semibold px-6 py-3.5 rounded-ds-md min-h-[52px] transition-all duration-[0.18s] flex items-center justify-center gap-2 ds-focus disabled:opacity-50 disabled:cursor-not-allowed"
+        style={{ background: 'var(--accent-ui)' }}
+        onMouseEnter={e => { if (!loading) e.currentTarget.style.background = '#e6314e' }}
+        onMouseLeave={e => { e.currentTarget.style.background = 'var(--accent-ui)' }}
       >
         {loading ? (
           <>
