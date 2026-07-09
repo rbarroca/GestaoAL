@@ -53,7 +53,7 @@ export default function HeroSection({
                 </span>
               )}
               <h1
-                className="font-extrabold text-white tracking-[-0.03em] leading-[1.04]"
+                className="font-black text-white tracking-[-0.03em] leading-[1.04]"
                 style={{ fontSize: 'clamp(2.125rem, 6vw, 3.375rem)' }}
               >
                 {headline}
@@ -91,7 +91,7 @@ export default function HeroSection({
               </span>
             )}
             <h1
-              className="font-extrabold text-white tracking-[-0.03em] leading-[1.04]"
+              className="font-black text-white tracking-[-0.03em] leading-[1.04]"
               style={{ fontSize: 'clamp(2.125rem, 6vw, 3.375rem)' }}
             >
               {headline}

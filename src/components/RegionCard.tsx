@@ -10,15 +10,16 @@ interface RegionCardProps {
 export default function RegionCard({ name, description, href, available }: RegionCardProps) {
   if (!available) {
     return (
-      <div className="block bg-surface-card border border-hairline rounded-xl p-6 opacity-60 min-h-[180px]">
-        <div className="flex items-start justify-between mb-1">
-          <p className="text-[20px] font-semibold text-ink">{name}</p>
-          <span className="text-[11px] font-semibold text-muted bg-surface-strong px-2 py-1 rounded-full uppercase tracking-wide whitespace-nowrap">
-            Coming soon
-          </span>
+      <div className="block bg-white border border-ds-border-soft rounded-ds-lg overflow-hidden opacity-60">
+        {/* Image zone placeholder */}
+        <div className="relative h-44 bg-surface-ink">
+          <div className="absolute inset-0" style={{ background: 'var(--scrim-card)' }} aria-hidden="true" />
+          <p className="absolute bottom-4 left-4 text-[1.625rem] font-extrabold text-white leading-none">{name}</p>
         </div>
-        <p className="text-sm text-muted leading-relaxed mb-4">{description}</p>
-        <p className="text-sm font-medium text-muted-soft">Not yet available</p>
+        <div className="p-5 bg-white">
+          <p className="text-ds-base text-ink-500 leading-relaxed mb-4">{description}</p>
+          <p className="text-sm font-semibold text-ink-400">Coming soon</p>
+        </div>
       </div>
     )
   }
@@ -26,13 +27,20 @@ export default function RegionCard({ name, description, href, available }: Regio
   return (
     <Link
       to={href}
-      className="block bg-surface-card border border-hairline rounded-xl p-6 min-h-[180px] hover:shadow-card transition-shadow duration-200 group"
+      className="block bg-white border border-ds-border-soft rounded-ds-lg overflow-hidden transition-all duration-[0.4s] hover:-translate-y-[3px] hover:shadow-ds-card"
     >
-      <p className="text-[20px] font-semibold text-ink mb-1 group-hover:text-brand-coral transition-colors">
-        {name}
-      </p>
-      <p className="text-sm text-muted leading-relaxed mb-4">{description}</p>
-      <p className="text-sm font-medium text-brand-coral">View managers →</p>
+      {/* Image zone: ~55% of card height — drop <img object-fit:cover> here when photos available:
+          <img src="..." alt="..." className="absolute inset-0 w-full h-full object-cover" /> */}
+      <div className="relative h-44 bg-surface-ink overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'var(--scrim-card)' }} aria-hidden="true" />
+        <p className="absolute bottom-4 left-4 text-[1.625rem] font-extrabold text-white leading-none">{name}</p>
+      </div>
+
+      {/* Text block */}
+      <div className="p-5 bg-white">
+        <p className="text-ds-base text-ink-500 leading-relaxed mb-4 line-clamp-2">{description}</p>
+        <p className="text-sm font-bold" style={{ color: 'var(--accent-text)' }}>View managers →</p>
+      </div>
     </Link>
   )
 }

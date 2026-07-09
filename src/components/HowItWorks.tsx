@@ -32,8 +32,11 @@ export default function HowItWorks() {
               key={step.number}
               className="bg-surface-card border border-hairline rounded-xl p-6 hover:shadow-card transition-shadow duration-200"
             >
-              <div className="w-10 h-10 bg-surface-strong rounded-full flex items-center justify-center mb-4">
-                <span className="text-ink font-semibold text-base">{step.number}</span>
+              <div
+                className="w-10 h-10 rounded-ds-sm flex items-center justify-center mb-4"
+                style={{ background: 'var(--accent-ui)' }}
+              >
+                <span className="text-white font-bold text-base">{step.number}</span>
               </div>
               <h3 className="text-base font-semibold text-ink mb-2">{step.title}</h3>
               <p className="text-sm text-muted leading-relaxed">{step.description}</p>
