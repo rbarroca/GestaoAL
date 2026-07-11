@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async'
-import { useState } from 'react'
-import { CheckCircle, ChevronDown, ChevronUp } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import HeroSection from '../components/HeroSection'
 import LeadForm from '../components/LeadForm'
+import Faq from '../components/Faq'
 
 const managerBenefits = [
   'Remote property management so you never need to be on-site',
@@ -57,30 +57,6 @@ const faqSchema = {
   })),
 }
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false)
-  return (
-    <div className="border border-hairline rounded-xl overflow-hidden">
-      <button
-        className="w-full flex items-center justify-between px-6 py-5 text-left bg-canvas hover:bg-surface-soft transition-colors"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <span className="text-base font-semibold text-ink pr-4">{question}</span>
-        {open
-          ? <ChevronUp size={18} className="text-muted flex-shrink-0" />
-          : <ChevronDown size={18} className="text-muted flex-shrink-0" />
-        }
-      </button>
-      {open && (
-        <div className="px-6 py-5 bg-surface-soft border-t border-hairline">
-          <p className="text-base text-body leading-relaxed">{answer}</p>
-        </div>
-      )}
-    </div>
-  )
-}
-
 export default function Lisbon() {
   return (
     <>
@@ -118,13 +94,21 @@ export default function Lisbon() {
               </h2>
               <div className="space-y-4 text-base text-body leading-relaxed">
                 <p>
-                  Lisbon is Portugal's most visited city, concentrating 19.6% of all national overnight stays 15.7 million in 2024 alone. The municipality recorded an ADR of €154.6, among the three highest in the country alongside Cascais and Loulé.
+                  Lisbon is Portugal's most visited city, concentrating{' '}
+                  <strong className="text-ink">19.6% of all national overnight stays</strong> 15.7 million in 2024
+                  alone. The municipality recorded an ADR of €154.6, among the three highest in the country alongside
+                  Cascais and Loulé.
                 </p>
                 <p>
-                  Unlike seasonal markets, Lisbon operates year-round. The city recorded the lowest seasonality rate among major Portuguese regions (30%) in 2024, meaning consistent demand across all twelve months. Non-residents account for the majority of overnight stays 80%+ in peak months.
+                  Unlike seasonal markets, Lisbon operates year-round. The city recorded the lowest seasonality rate
+                  among major Portuguese regions (<strong className="text-ink">30%</strong>) in 2024, meaning
+                  consistent demand across all twelve months. Non-residents account for the majority of overnight
+                  stays <strong className="text-ink">80%+</strong> in peak months.
                 </p>
                 <p>
-                  The Grande Lisboa region generated 19.8% of total national tourism revenue in 2024 second only to the Algarve. RevPAR reached €106.7, the highest in mainland Portugal, reflecting the strength of the urban short-term rental market.
+                  The Grande Lisboa region generated 19.8% of total national tourism revenue in 2024 second only to
+                  the Algarve. RevPAR reached <strong className="text-ink">€106.7</strong>, the highest in mainland
+                  Portugal, reflecting the strength of the urban short-term rental market.
                 </p>
                 <p>
                   Regulatory context matters here: Lisbon has introduced containment zones and licensing restrictions since 2023. A professional manager who understands local compliance including RNAL registration, condominium rules, and municipal requirements is essential for any foreign owner.
@@ -190,21 +174,7 @@ export default function Lisbon() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-16 bg-canvas">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-[22px] font-semibold text-ink mb-8 tracking-[-0.44px] text-center">
-                Frequently asked questions
-              </h2>
-              <div className="space-y-3">
-                {faqs.map((faq) => (
-                  <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <Faq faqs={faqs} />
       </main>
       <Footer />
     </>

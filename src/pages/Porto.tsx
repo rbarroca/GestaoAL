@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async'
-import { useState } from 'react'
-import { CheckCircle, ChevronDown, ChevronUp } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import HeroSection from '../components/HeroSection'
 import LeadForm from '../components/LeadForm'
+import Faq from '../components/Faq'
 
 const managerBenefits = [
   "Remote property management across Porto's diverse neighbourhoods",
@@ -56,30 +56,6 @@ const faqSchema = {
   })),
 }
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false)
-  return (
-    <div className="border border-hairline rounded-xl overflow-hidden">
-      <button
-        className="w-full flex items-center justify-between px-6 py-5 text-left bg-canvas hover:bg-surface-soft transition-colors"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <span className="text-base font-semibold text-ink pr-4">{question}</span>
-        {open
-          ? <ChevronUp size={18} className="text-muted flex-shrink-0" />
-          : <ChevronDown size={18} className="text-muted flex-shrink-0" />
-        }
-      </button>
-      {open && (
-        <div className="px-6 py-5 bg-surface-soft border-t border-hairline">
-          <p className="text-base text-body leading-relaxed">{answer}</p>
-        </div>
-      )}
-    </div>
-  )
-}
-
 export default function Porto() {
   return (
     <>
@@ -117,16 +93,25 @@ export default function Porto() {
               </h2>
               <div className="space-y-4 text-base text-body leading-relaxed">
                 <p>
-                  Porto recorded 6.27 million overnight stays in 2024 a growth of 6.9% over 2023 and 36.9% above pre-pandemic 2019 levels. The Norte region as a whole grew 6.4% in overnight stays, outperforming the national average of 4%.
+                  Porto recorded{' '}
+                  <strong className="text-ink">6.27 million overnight stays</strong> in 2024 a growth of 6.9% over
+                  2023 and 36.9% above pre-pandemic 2019 levels. The Norte region as a whole grew 6.4% in overnight
+                  stays, outperforming the national average of 4%.
                 </p>
                 <p>
-                  Short-term rentals represent 22.6% of all tourist accommodation in Porto, a proportion that continues to grow as the city attracts investors from across Europe. Total tourism revenue for the Porto region reached €492 million in 2024, growing 12.8% year-on-year.
+                  Short-term rentals represent <strong className="text-ink">22.6%</strong> of all tourist
+                  accommodation in Porto, a proportion that continues to grow as the city attracts investors from
+                  across Europe. Total tourism revenue for the Porto region reached{' '}
+                  <strong className="text-ink">€492 million</strong> in 2024, growing 12.8% year-on-year.
                 </p>
                 <p>
                   Porto is in an active growth phase. Unlike Lisbon, where licensing restrictions have slowed new registrations, Porto continues to expand its short-term rental market with fewer regulatory barriers. This makes it an attractive entry point for foreign investors.
                 </p>
                 <p>
-                  International visitors represent 63.1% of overnight stays in the Norte region the highest share on record. The UK, France, Spain and Germany are the primary source markets, with strong demand concentrated in Ribeira, Baixa and the emerging Foz do Douro area.
+                  International visitors represent <strong className="text-ink">63.1%</strong> of overnight stays in
+                  the Norte region the highest share on record. The UK, France, Spain and Germany are the primary
+                  source markets, with strong demand concentrated in Ribeira, Baixa and the emerging Foz do Douro
+                  area.
                 </p>
               </div>
             </div>
@@ -189,21 +174,7 @@ export default function Porto() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-16 bg-canvas">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-[22px] font-semibold text-ink mb-8 tracking-[-0.44px] text-center">
-                Frequently asked questions
-              </h2>
-              <div className="space-y-3">
-                {faqs.map((faq) => (
-                  <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <Faq faqs={faqs} />
       </main>
       <Footer />
     </>

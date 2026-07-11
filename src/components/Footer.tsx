@@ -17,9 +17,14 @@ export default function Footer() {
             <li><a href="/algarve" className="text-muted hover:text-ink transition-colors">Algarve</a></li>
             <li><a href="/lisbon" className="text-muted hover:text-ink transition-colors">Lisbon</a></li>
             <li><a href="/porto" className="text-muted hover:text-ink transition-colors">Porto</a></li>
-            <li><span className="text-muted-soft">Alentejo</span></li>
-            <li><span className="text-muted-soft">Madeira</span></li>
-            <li><span className="text-muted-soft">Açores</span></li>
+            {['Alentejo', 'Madeira', 'Açores'].map((name) => (
+              <li key={name} className="flex items-center gap-2">
+                <span className="text-muted-soft">{name}</span>
+                <span className="text-[11px] font-semibold text-ink-400 bg-surface-subtle px-2 py-0.5 rounded-full">
+                  Soon
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
 

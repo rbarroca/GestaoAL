@@ -1,16 +1,18 @@
+import { Home, User, Mail } from 'lucide-react'
+
 const steps = [
   {
-    number: '1',
+    icon: Home,
     title: 'Tell us about your property',
     description: 'Fill in our short form with your property details, location, and what you need from a manager.',
   },
   {
-    number: '2',
+    icon: User,
     title: 'We match you with local managers',
     description: 'We review your submission and identify the best-fit vetted managers in your region.',
   },
   {
-    number: '3',
+    icon: Mail,
     title: 'Your manager contacts you within 48h',
     description: 'Sit back. Your matched property manager will reach out directly to discuss next steps.',
   },
@@ -34,14 +36,14 @@ export default function HowItWorks() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((step) => (
             <div
-              key={step.number}
+              key={step.title}
               className="bg-surface-card border border-hairline rounded-xl p-6 hover:shadow-card transition-shadow duration-200"
             >
               <div
                 className="w-10 h-10 rounded-ds-sm flex items-center justify-center mb-4"
                 style={{ background: 'var(--accent-ui)' }}
               >
-                <span className="text-white font-bold text-base">{step.number}</span>
+                <step.icon size={20} className="text-white" strokeWidth={2.25} />
               </div>
               <h3 className="text-ds-h3 text-ink-900 mb-2">{step.title}</h3>
               <p className="text-ds-body text-ink-500">{step.description}</p>

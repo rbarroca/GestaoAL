@@ -1,34 +1,16 @@
 import { useState } from 'react'
 
-const faqs = [
-  {
-    question: 'Is the matching service really free?',
-    answer:
-      'Yes, 100% free for property owners. We are paid a referral fee by the property management companies we introduce, only when a match is made. You never pay anything.',
-  },
-  {
-    question: 'How are managers vetted?',
-    answer:
-      'We vet every manager in our network before they can receive referrals. We check licences, verify experience, review client references, and confirm they are active and responsive. We only work with managers we would trust with our own properties.',
-  },
-  {
-    question: 'How long until I hear back?',
-    answer:
-      'Typically within 48 hours of submitting your request. Your matched manager will contact you directly to introduce themselves and discuss your property.',
-  },
-  {
-    question: 'Which regions do you cover?',
-    answer:
-      'We currently cover the Algarve, Lisbon, and Porto — the three most active short-term rental regions in Portugal for foreign owners. We are expanding to Alentejo, Madeira, and the Açores in 2025.',
-  },
-  {
-    question: 'Do I have to commit to a manager?',
-    answer:
-      'No commitment required. We introduce you to the best-fit manager for your property and location. You then decide whether to proceed. There is no pressure and no obligation.',
-  },
-]
+export interface FaqEntry {
+  question: string
+  answer: string
+}
 
-export default function HomeFAQ() {
+interface FaqProps {
+  faqs: FaqEntry[]
+  title?: string
+}
+
+export default function Faq({ faqs, title = 'Frequently asked questions' }: FaqProps) {
   const [openIndex, setOpenIndex] = useState(0)
 
   function toggle(i: number) {
@@ -42,7 +24,7 @@ export default function HomeFAQ() {
           className="font-extrabold text-ink-900 text-center mb-12 tracking-[-0.02em]"
           style={{ fontSize: '2.25rem', lineHeight: '1.1' }}
         >
-          Frequently asked questions
+          {title}
         </h2>
         <div>
           {faqs.map((faq, i) => {

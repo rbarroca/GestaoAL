@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async'
-import { useState } from 'react'
-import { CheckCircle, ChevronDown, ChevronUp } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import HeroSection from '../components/HeroSection'
 import LeadForm from '../components/LeadForm'
+import Faq from '../components/Faq'
 
 const managerBenefits = [
   'Remote property management so you never need to be on-site',
@@ -54,30 +54,6 @@ const faqSchema = {
     name: faq.question,
     acceptedAnswer: { '@type': 'Answer', text: faq.answer },
   })),
-}
-
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false)
-  return (
-    <div className="border border-hairline rounded-xl overflow-hidden">
-      <button
-        className="w-full flex items-center justify-between px-6 py-5 text-left bg-canvas hover:bg-surface-soft transition-colors"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <span className="text-base font-semibold text-ink pr-4">{question}</span>
-        {open
-          ? <ChevronUp size={18} className="text-muted flex-shrink-0" />
-          : <ChevronDown size={18} className="text-muted flex-shrink-0" />
-        }
-      </button>
-      {open && (
-        <div className="px-6 py-5 bg-surface-soft border-t border-hairline">
-          <p className="text-base text-body leading-relaxed">{answer}</p>
-        </div>
-      )}
-    </div>
-  )
 }
 
 export default function Algarve() {
@@ -198,21 +174,7 @@ export default function Algarve() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-16 bg-canvas">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-[22px] font-semibold text-ink mb-8 tracking-[-0.44px] text-center">
-                Frequently asked questions
-              </h2>
-              <div className="space-y-3">
-                {faqs.map((faq) => (
-                  <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <Faq faqs={faqs} />
       </main>
       <Footer />
     </>

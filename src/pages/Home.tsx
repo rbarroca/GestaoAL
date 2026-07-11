@@ -1,11 +1,39 @@
 import { Helmet } from 'react-helmet-async'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import HeroSection from '../components/HeroSection'
+import HomeHero from '../components/HomeHero'
 import TrustBar from '../components/TrustBar'
 import HowItWorks from '../components/HowItWorks'
 import RegionCard from '../components/RegionCard'
-import HomeFAQ from '../components/HomeFAQ'
+import Faq from '../components/Faq'
+
+const faqs = [
+  {
+    question: 'Is the matching service really free?',
+    answer:
+      'Yes, 100% free for property owners. We are paid a referral fee by the property management companies we introduce, only when a match is made. You never pay anything.',
+  },
+  {
+    question: 'How are managers vetted?',
+    answer:
+      'We vet every manager in our network before they can receive referrals. We check licences, verify experience, review client references, and confirm they are active and responsive. We only work with managers we would trust with our own properties.',
+  },
+  {
+    question: 'How long until I hear back?',
+    answer:
+      'Typically within 48 hours of submitting your request. Your matched manager will contact you directly to introduce themselves and discuss your property.',
+  },
+  {
+    question: 'Which regions do you cover?',
+    answer:
+      'We currently cover the Algarve, Lisbon, and Porto — the three most active short-term rental regions in Portugal for foreign owners. We are expanding to Alentejo, Madeira, and the Açores in 2025.',
+  },
+  {
+    question: 'Do I have to commit to a manager?',
+    answer:
+      'No commitment required. We introduce you to the best-fit manager for your property and location. You then decide whether to proceed. There is no pressure and no obligation.',
+  },
+]
 
 const regions = [
   {
@@ -51,7 +79,7 @@ export default function Home() {
       </Helmet>
       <Header />
       <main>
-        <HeroSection
+        <HomeHero
           eyebrow="Portugal · Algarve · Lisbon · Porto"
           headline="Find a trusted property manager for your home in Portugal."
           subheadline="We match foreign property owners with trusted local managers across Portugal. Free, no obligation."
@@ -80,7 +108,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <HomeFAQ />
+        <Faq faqs={faqs} />
       </main>
       <Footer />
     </>
