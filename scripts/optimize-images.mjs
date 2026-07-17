@@ -2,10 +2,11 @@
  * Image optimisation pipeline — Design System AL v1.0
  *
  * Source photos (download originals to src/assets/images/originals/):
- *   hero.jpg    https://unsplash.com/photos/aerial-photo-of-beach-k89cvE4zY2A
- *   algarve.jpg https://unsplash.com/photos/a-scenic-view-of-a-body-of-water-near-a-rocky-cliff-WJQ39Q1rpgA
- *   lisbon.jpg  https://unsplash.com/photos/yellow-and-white-tram-on-road-during-daytime-ljhCEaHYWJ8
- *   porto.jpg   https://unsplash.com/photos/boat-sailing-near-bridge-6ckFibuzLAU
+ *   hero.jpg      https://unsplash.com/photos/aerial-photo-of-beach-k89cvE4zY2A
+ *   algarve.jpg   https://unsplash.com/photos/a-scenic-view-of-a-body-of-water-near-a-rocky-cliff-WJQ39Q1rpgA
+ *   lisbon.jpg    https://unsplash.com/photos/yellow-and-white-tram-on-road-during-daytime-ljhCEaHYWJ8
+ *   porto.jpg     https://unsplash.com/photos/boat-sailing-near-bridge-6ckFibuzLAU
+ *   blog-hero.jpg https://unsplash.com/photos/white-and-brown-concrete-houses-near-green-palm-trees-under-blue-sky-during-daytime-bLrK4p3u07s
  *
  * Usage:
  *   npm run optimize:images
@@ -49,6 +50,11 @@ const images = [
   {
     name: 'porto',
     widths: [360, 720, 1280, 1920],
+    height: null,
+  },
+  {
+    name: 'blog-hero',
+    widths: [768, 1280, 1920],
     height: null,
   },
 ]

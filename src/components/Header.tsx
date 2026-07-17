@@ -97,6 +97,12 @@ export default function Header() {
           </Dropdown>
 
           <Dropdown label="Resources">
+            <Link
+              to="/blog"
+              className="block px-4 py-2 text-sm text-ink-700 hover:text-ink-900 transition-colors duration-[0.18s]"
+            >
+              Blog & Guides
+            </Link>
             {resources.map((r) => (
               <a
                 key={r.href}
@@ -164,6 +170,9 @@ export default function Header() {
           </button>
           {mobileResources && (
             <div className="pl-3 flex flex-col gap-1 mb-1">
+              <Link to="/blog" className="py-1.5 text-sm text-ink-700" onClick={() => setOpen(false)}>
+                Blog & Guides
+              </Link>
               {resources.map((r) => (
                 <a
                   key={r.href}

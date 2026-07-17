@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
   return (
     <footer className="bg-canvas border-t border-hairline mt-16">
@@ -31,6 +33,7 @@ export default function Footer() {
         <div>
           <p className="text-sm font-semibold text-ink mb-3">Resources</p>
           <ul className="space-y-2 text-sm">
+            <li><Link to="/blog" className="text-muted hover:text-ink transition-colors">Blog & Guides</Link></li>
             <li>
               <a
                 href="https://calculadoraal.pt"
